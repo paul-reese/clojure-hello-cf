@@ -19,7 +19,11 @@ To enable this Clojure application to run in Cloud Foundry a Profile was created
 
 If you'd like to fork and make changes one would need to create an uberjar using the lein command
     
-    lein uberjar
+    % lein uberjar
+    Compiling hello-cf.core
+    Compiling hello-cf.core
+    Created /Users/phopper/Documents/pivotal/workspace/clojure/hello-cf/target/hello-cf-0.1.0-SNAPSHOT.jar
+    Created /Users/phopper/Documents/pivotal/workspace/clojure/hello-cf/target/hello-cf-0.1.0-SNAPSHOT-standalone.jar
 
 The necessary artifacts (including a standalone JAR file) will be created
     
