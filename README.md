@@ -25,14 +25,11 @@ If you'd like to fork and make changes one would need to create an uberjar using
     Created /Users/phopper/Documents/pivotal/workspace/clojure/hello-cf/target/hello-cf-0.1.0-SNAPSHOT.jar
     Created /Users/phopper/Documents/pivotal/workspace/clojure/hello-cf/target/hello-cf-0.1.0-SNAPSHOT-standalone.jar
 
-The necessary artifacts (including a standalone JAR file) will be created
-    
-    $ ls -ltr target                                                                                                                        1 ↵
-    total 11192
-    drwxr-xr-x  3 phopper  staff      102 Jul 19 12:20 stale
-    drwxr-xr-x  5 phopper  staff      170 Jul 19 12:20 classes
-    -rw-r--r--  1 phopper  staff    56364 Jul 19 12:20 hello-cf-0.1.0-SNAPSHOT.jar
-    -rw-r--r--  1 phopper  staff  5670274 Jul 19 12:20 hello-cf-0.1.0-SNAPSHOT-standalone.jar    
+You will see here that two JAR files are created;
+* a base JAR
+* a standalone JAR
+
+We can use either for our cf push to Cloud Foundry 
 
 ## Usage
 
