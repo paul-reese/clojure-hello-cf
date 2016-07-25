@@ -18,7 +18,9 @@ To enable this Clojure application to run in Cloud Foundry a Profile was created
 ## Create an Uberjar
 
 If you'd like to fork and make changes one would need to create an uberjar using the lein command
+    
     lein uberjar
+
 The necessary artifacts (including a standalone JAR file) will be created
     
     $ ls -ltr target                                                                                                                        1 ↵
