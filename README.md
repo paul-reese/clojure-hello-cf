@@ -12,6 +12,7 @@ To use this project to push the support Clojure RESTful application to Cloud Fou
 ## Enable Clojure App for Cloud Foundry
 
 To enable this Clojure application to run in Cloud Foundry a Profile was created in the root directory containing this snippit
+    
     web: lein with-profile production trampoline run -m hello-cf.core $PORT
 
 ## Create an Uberjar
@@ -19,6 +20,7 @@ To enable this Clojure application to run in Cloud Foundry a Profile was created
 If you'd like to fork and make changes one would need to create an uberjar using the lein command
     lein uberjar
 The necessary artifacts (including a standalone JAR file) will be created
+    
     $ ls -ltr target                                                                                                                        1 ↵
     total 11192
     drwxr-xr-x  3 phopper  staff      102 Jul 19 12:20 stale
