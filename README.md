@@ -11,7 +11,7 @@ To use this project to push the support Clojure RESTful application to Cloud Fou
 
 ## Enable Clojure App for Cloud Foundry
 
-To enable this Clojure application to run in Cloud Foundry a Profile was created in the root directory containing this snippit. The profile or Procfile will reside in the root directory of the hello_cf project. To view this Procfile;
+To enable this Clojure application to run in Cloud Foundry a Profile was created in the root directory. The web profile or Procfile will reside in the root directory of the hello_cf project. To view this Procfile;
     
     % more Procfile
     web: lein with-profile production trampoline run -m hello-cf.core $PORT
