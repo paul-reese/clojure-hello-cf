@@ -11,8 +11,9 @@ To use this project to push the support Clojure RESTful application to Cloud Fou
 
 ## Enable Clojure App for Cloud Foundry
 
-To enable this Clojure application to run in Cloud Foundry a Profile was created in the root directory containing this snippit
+To enable this Clojure application to run in Cloud Foundry a Profile was created in the root directory containing this snippit. The profile or Procfile will reside in the root directory of the hello_cf project. To view this Procfile;
     
+    % more Procfile
     web: lein with-profile production trampoline run -m hello-cf.core $PORT
 
 ## Create an Uberjar
@@ -56,90 +57,25 @@ User only needs to open 0.0.0.0:8080 in a browser or execute a curl GET aginast 
 
 ### To run on Cloud Foundry
 
-There are two Cloud Foundry manifest files provided;
+The recommended way to run Clojure applications on Cloud Foundry is to use the Pivotal supported Open Source Java Buildpack. Pivotal will support this Buildpack providing regular updates (version against OpenJDK, Tomcat, etc) as well as any CVE's should they arise. The process outlined here will follow this path;
 
-* manifest.yml - supports using a Heroku Clojure OSS buildpack
-* manifest-java.yml - supports using the Java OSS buildpack
+* manifest.yml - supports using OSS Java Buildpack
 
-To cf push application using Heroku Clojure Buildpack
+To cf push application using Java Buildpack
 
     % cf push -f manifest.yml
 
     Using manifest file manifest.yml
 
-    Updating app hello-cf-heroku-clojure in org Vertical / space development as phopper@pivotal.io...
-    OK
-
-    Using route hello-cf-heroku-clojure.cfapps.io
-    Uploading hello-cf-heroku-clojure...
-    Uploading app files from: /Users/phopper/Documents/pivotal/workspace/clojure/hello-cf
-    Uploading 167.4K, 75 files
-    Done uploading               
-    OK
-
-    Starting app hello-cf-heroku-clojure in org Vertical / space development as phopper@pivotal.io...
-    Creating container
-    Successfully created container
-    Downloaded app package (4.9M)
-    Downloading build artifacts cache...
-    Downloading app package...
-    Downloaded build artifacts cache (18M)
-    Staging...
-    -----> Installing OpenJDK 1.8... done
-    -----> Using cached Leiningen 2.6.1
-        Writing: lein script
-    -----> Building with Leiningen
-        Running: lein with-profile production compile :all
-        "Retrieving" "environ/environ/1.0.3/environ-1.0.3.pom" "from" "clojars"
-        "Retrieving" "org/clojure/clojure/1.5.1/clojure-1.5.1.pom" "from" "central"
-        "Retrieving" "org/sonatype/oss/oss-parent/5/oss-parent-5.pom" "from" "central"
-        "Retrieving" "environ/environ/1.0.3/environ-1.0.3.jar" "from" "clojars"
-        Compiling hello-cf.core
-    Exit status 0
-    Staging complete
-    Uploading droplet, build artifacts cache...
-    Uploading build artifacts cache...
-    Uploading droplet...
-    Uploaded build artifacts cache (18M)
-    Uploaded droplet (70.9M)
-    Uploading complete
-    Destroying container
-    Successfully destroyed container
-
-    0 of 1 instances running, 1 starting
-    1 of 1 instances running
-
-    App started
-
-
-    OK
-
-    App hello-cf-heroku-clojure was started using this command `lein with-profile production trampoline run -m hello-cf.core $PORT`
-
-    Showing health and status for app hello-cf-heroku-clojure in org Vertical / space development as phopper@pivotal.io...
-    OK
-
-    requested state: started
-    instances: 1/1
-    usage: 512M x 1 instances
-    urls: hello-cf-heroku-clojure.cfapps.io
-    last uploaded: Mon Jul 25 22:03:59 UTC 2016
-    stack: unknown
-    buildpack: https://github.com/heroku/heroku-buildpack-clojure.git
-
-        state     since                    cpu    memory          disk           details
-    #0   running   2016-07-25 04:04:38 PM   0.0%   21.7M of 512M   161.7M of 1G
-
-To cf push application using Java Buildpack
-
-    % cf push -f manifest-java.yml
-
-    Using manifest file manifest-java.yml
-
     Updating app hello-cf-java in org Vertical / space development as phopper@pivotal.io...
     OK
 
-    Using route hello-cf-java.cfapps.io
+    Creating route hello-cf-java-flawless-sandhi.cfapps.io...
+    OK
+
+    Binding hello-cf-java-flawless-sandhi.cfapps.io to hello-cf-java...
+    OK
+
     Uploading hello-cf-java...
     Uploading app files from: /var/folders/hz/_9jdwmpn39n1dmyfj2nlw0880000gn/T/unzipped-app427249576
     Uploading 10.6M, 5053 files
@@ -178,7 +114,6 @@ To cf push application using Java Buildpack
 
     App started
 
-
     OK
 
     App hello-cf-java was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.2_RELEASE -memorySizes=metaspace:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 -memoryInitials=heap:100%,metaspace:100% -stackThreads=300 -totMemory=$MEMORY_LIMIT) && JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY -Djava.security.egd=file:///dev/urandom" &&  eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/. hello_cf.core`
@@ -189,7 +124,7 @@ To cf push application using Java Buildpack
     requested state: started
     instances: 1/1
     usage: 512M x 1 instances
-    urls: hello-cf-java.cfapps.io
+    urls: hello-cf-java-flawless-sandhi.cfapps.io
     last uploaded: Mon Jul 25 22:07:22 UTC 2016
     stack: unknown
     buildpack: https://github.com/cloudfoundry/java-buildpack

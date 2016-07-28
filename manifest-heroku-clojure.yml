@@ -1,0 +1,9 @@
+applications:
+- name: hello-cf-heroku-clojure
+  memory: 512M
+  instances: 1
+  host: hello-cf-heroku-clojure-${random-word}
+  buildpack: https://github.com/heroku/heroku-buildpack-clojure.git
+  timeout: 180
+  env:
+      JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
