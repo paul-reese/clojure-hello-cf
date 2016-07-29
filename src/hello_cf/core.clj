@@ -2,13 +2,12 @@
    (:gen-class)
    (:use [ring.adapter.jetty :only [run-jetty]]))
 
+(System/getProperty "os.version")
+
 (defn handler [request]
   {:status 200
    :headers {"Content-Type" "text/html"}
-   :body "Hello people, this is a Clojure app running with java buildpack!"})
+   :body (str "Hello people, this is a Clojure app running with buildpack: " (System/getProperty "buildpack.version"))})
 
 (defn -main [& args]
   (run-jetty handler {:port 8080}))
-
-;(defn -main [& args]
-;   (println "Welcome to my project! These are your args:" args))

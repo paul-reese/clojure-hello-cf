@@ -7,4 +7,4 @@ applications:
   buildpack: https://github.com/cloudfoundry/java-buildpack
   timeout: 180
   env:
-      JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+      JAVA_OPTS: -Djava.security.egd=file:///dev/urandom -Dbuildpack.version="Java buildpack"

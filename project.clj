@@ -5,8 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring/ring-core "1.1.8"]
-                 [ring/ring-jetty-adapter "1.1.8"]
-                 [environ "1.0.3"]]
+                 [ring/ring-jetty-adapter "1.1.8"]]
   :profiles {:dev {:dependencies [[ring/ring-devel "1.4.0"]]}}
   :main hello-cf.core
   :aot [hello-cf.core])
