@@ -2,7 +2,7 @@ applications:
 - name: hello-cf-java
   memory: 512M
   instances: 1
-  host: hello-cf-java-${random-word}
+  host: hello-cf-java
   path: ./target/hello-cf-0.1.0-SNAPSHOT-standalone.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack
   timeout: 180
