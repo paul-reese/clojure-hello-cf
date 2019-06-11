@@ -6,3 +6,5 @@ applications:
   path: ./target/hello-cf-0.1.0-SNAPSHOT-standalone.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack
   timeout: 180
+  env:
+    JAVA_OPTS: -Dbuildpack.version="Java buildpack"
