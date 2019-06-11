@@ -1,10 +1,8 @@
 applications:
 - name: hello-cf-java
-  memory: 512M
+  memory: 1G
   instances: 1
   host: hello-cf-java
   path: ./target/hello-cf-0.1.0-SNAPSHOT-standalone.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack
   timeout: 180
-  env:
-      JAVA_OPTS: -Djava.security.egd=file:///dev/urandom -Dbuildpack.version="Java buildpack"
