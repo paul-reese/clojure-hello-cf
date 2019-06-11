@@ -18,7 +18,7 @@ To enable this Clojure application to run in Cloud Foundry a Profile was created
 
 ## Create an Uberjar
 
-If you'd like to fork and make changes one would need to create an uberjar using the lein command;
+If you'd like to fork and make changes one would need to create an uberjar using the lein command. This is required for one to push application to PCF.
     
     % lein uberjar
     Compiling hello-cf.core
@@ -54,9 +54,6 @@ User only needs to open 0.0.0.0:8080 in a browser or execute a curl GET aginast 
     % curl 0.0.0.0:8080
 
     Hello people, this is a Clojure app running with java buildpack!   
-
-### To build an uberjar (needed to deploy to PCF)
-    % lein uberjar
 
 ### To run on Cloud Foundry
 
