@@ -55,6 +55,9 @@ User only needs to open 0.0.0.0:8080 in a browser or execute a curl GET aginast 
 
     Hello people, this is a Clojure app running with java buildpack!   
 
+### To build an uberjar (needed to deploy to PCF)
+    % lein uberjar
+
 ### To run on Cloud Foundry
 
 The recommended way to run Clojure applications on Cloud Foundry is to use the Pivotal supported Open Source Java Buildpack. Pivotal will support this Buildpack providing regular updates (version against OpenJDK, Tomcat, etc) as well as any CVE's should they arise. The process outlined here will follow this path;
